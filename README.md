@@ -40,22 +40,23 @@ IDS3_Project/
 ```r
 install.packages(c("shiny", "rmarkdown", "knitr"))
 ```
-### 2. Run simulations (generate plots)
-
+### 2. Set working directory
+```r
+> setwd("path/to/IDS3_Project")
+```
+### 3. Run simulations (generate plots)
 ```r
 source("main.R")
 ```
-### 3. Run interactive app (Shiny)
+### 4. Run interactive app (Shiny)
 ```r
-shiny::runApp("c:/Users/chemi/code/R/IDS3_Project/ui")
+shiny::runApp("ui")
 ```
-### 4. Generate final report
+### 5. Generate final report
 ```r
-install.packages("rmarkdown")
-install.packages("knitr")
 install.packages("tinytex")
 tinytex::install_tinytex()
-rmarkdown::render("c:/Users/chemi/code/R/IDS3_Project/report/report.Rmd")
+rmarkdown::render("report/report.Rmd")
 ```
 # 📊 Features
 CLT Module
@@ -63,19 +64,27 @@ CLT Module
     Sample size variation
     Histogram + Normal curve
     Q-Q plots
+    Variance analysis
 LLN Module
     Convergence of sample mean
     Comparison with theoretical expectation
+    Confidence bands
 Shiny App
-Interactive selection of:
-    Distribution
-    Sample size
-    Simulation number
-    LLN vs CLT
+    Interactive selection of:
+        Distribution
+        Sample size
+        Simulation number
+        LLN vs CLT
+    CLT vs LLN exploration
+    Real-time visualization
+    Statistical summaries
 🧠 Key Insight
-LLN → stability of averages
-CLT → emergence of normality
-normality
+    LLN → stability of averages
+    CLT → emergence of normality
+📌 Notes
+    main.R generates plots for the report
+    app.R is for interactive exploration
+    report.Rmd produces the final PDF
 👨‍💻 Authors
 CLT module:
 LLN module:

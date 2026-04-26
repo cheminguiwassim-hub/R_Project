@@ -1,6 +1,7 @@
 library(shiny)
-source("c:/Users/chemi/code/R/IDS3_Project/functions/clt_functions.R")
-source("c:/Users/chemi/code/R/IDS3_Project/functions/lln_functions.R")
+
+source("../functions/clt_functions.R")
+source("../functions/lln_functions.R")
 
 ui <- fluidPage(
   titlePanel("LLN & CLT Simulator"),
@@ -27,6 +28,7 @@ ui <- fluidPage(
     ),
     
     mainPanel(
+      h4("Visualization"),
       plotOutput("plot",height = "600px")
     )
   )

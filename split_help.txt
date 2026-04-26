@@ -1,0 +1,44 @@
+👤 Teammate 1 — REPORT (refined version)
+📄 Deliverables (Report)
+1.Theory section (improved)
+*Add formulas:
+-LLN:X̄ₙ → E[X]
+-CLT:(X̄ − μ) / (σ / √n) → N(0,1)
+*Add 3–5 lines explanation for each (in your own words)
+2.Interpretation section
+*Explain:
+-Why variance decreases in CLT
+-What Q-Q plot shows (normality check)
+3.Figures
+*Insert at least:
+-1 CLT plot (small n vs large n)
+-1 LLN convergence plot
+*Add captions (very important)
+4.Conclusion
+*5–8 lines summarizing:
+-LLN insight
+-CLT insight
+-Why both are important
+👤 Teammate 2 — UI / UX (refined version)
+🎨 Deliverables (Shiny App UI)
+1.Layout improvement
+*Add section titles:
+-“Controls”
+-“Visualization”
+*Improve spacing (use br() or margins)
+2.Better structure
+*Use:
+    tabsetPanel(
+        tabPanel("CLT", ...),
+        tabPanel("LLN", ...)
+    )
+*OR clearly separate sections visually
+3.Labels & wording
+*Replace:
+-"Choose" → "Select Theorem"
+-"dist" → "Distribution type"
+*Make everything readable for a non-technical user
+4.Visual polish
+*Add h4() above plots
+*Align elements cleanly
+*Keep UI simple but cle

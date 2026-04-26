@@ -26,16 +26,16 @@ The distribution of standardized sample means converges to a normal distribution
 # 3. CLT Simulations
 
 ```{r}
-source("R/IDS3_Project/functions/clt_functions.R")
+source("functions/clt_functions.R")
 
 means <- simulate_clt("exp", 30, 10000)
-plot_clt(means, "CLT - Exponential (n=30)")
+plot_clt(means, 1, "CLT - Exponential (n=30)")
 ```
 
 # 4. LLN Simulation
 
 ```{r}
-source("R/IDS3_Project/functions/lln_functions.R")
+source("functions/lln_functions.R")
 
 values <- rexp(1000)
 plot_lln(values, 1, "LLN - Exponential")
