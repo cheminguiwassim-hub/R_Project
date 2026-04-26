@@ -1,0 +1,58 @@
+---
+title: "Exploring Limit Theorems (LLN & CLT)"
+output: pdf_document
+---
+
+# 1. Introduction
+This project explores two fundamental statistical theorems:
+- Law of Large Numbers (LLN)
+- Central Limit Theorem (CLT)
+using Monte Carlo simulations in R.
+
+We analyze convergence behavior and distributional properties.
+
+---
+
+# 2. Theory
+
+## 2.1 Law of Large Numbers
+The sample mean converges to the expected value as n increases.
+
+## 2.2 Central Limit Theorem
+The distribution of standardized sample means converges to a normal distribution.
+
+---
+
+# 3. CLT Simulations
+
+```{r}
+source("R/IDS3_Project/functions/clt_functions.R")
+
+means <- simulate_clt("exp", 30, 10000)
+plot_clt(means, "CLT - Exponential (n=30)")
+```
+
+# 4. LLN Simulation
+
+```{r}
+source("R/IDS3_Project/functions/lln_functions.R")
+
+values <- rexp(1000)
+plot_lln(values, 1, "LLN - Exponential")
+```
+
+# 5. Conclusion
+
+LLN shows convergence of averages
+CLT shows emergence of normality
+Results confirm theoretical predictions
+
+# 6. Discussion
+
+The results confirm that:
+
+- Increasing sample size reduces variance (CLT effect)
+- Sample means converge to expected value (LLN effect)
+- Even skewed distributions (Exponential) become normal under CLT
+
+This demonstrates the universality of the normal distribution in statistics.

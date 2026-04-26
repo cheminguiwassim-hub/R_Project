@@ -1,0 +1,8 @@
+CLT Results:
+- For n = 5 → skewed distribution
+- For n = 10 → less skewed
+- For n = 30, 100 → approximately normal
+
+LLN Results:
+- Cumulative mean converges to theoretical expectation
+- Convergence speed depends on variance
