@@ -4,8 +4,11 @@
 \usepackage{amsmath, amssymb}
 \usepackage{graphicx}
 \usepackage{caption}
+\usepackage{tcolorbox}
+\usepackage{geometry}
+\geometry{margin=1in}
 
-\title{Law of Large Numbers and Central Limit Theorem}
+\title{\textbf{Statistical Report: Law of Large Numbers and Central Limit Theorem}}
 \author{}
 \date{}
 
@@ -13,45 +16,118 @@
 
 \maketitle
 
-\section{Theory Section}
+% ---------------- INTRO ----------------
+\section{Introduction}
 
-\subsection{Law of Large Numbers (LLN)}
+Statistics is built on two fundamental pillars: the Law of Large Numbers (LLN) and the Central Limit Theorem (CLT). These results explain why randomness becomes predictable at scale and why the normal distribution appears everywhere in data science, physics, and machine learning.
 
-\textbf{Formula:}
+This report explores their meaning, intuition, and practical behavior using simulations and examples.
+
+% ---------------- LLN ----------------
+\section{Law of Large Numbers (LLN)}
+
+\subsection{Mathematical Statement}
+
 \[
 \bar{X}_n \rightarrow \mathbb{E}[X] \quad \text{as } n \to \infty
 \]
 
-\textbf{Explanation:} \\
-The Law of Large Numbers states that when an experiment is repeated many times, the average of the observed values converges to the expected value. At the beginning, results fluctuate due to randomness, but as the number of observations increases, the average stabilizes and becomes a reliable estimate of the true mean.
+\subsection{Intuition}
 
-\subsection{Central Limit Theorem (CLT)}
+\begin{tcolorbox}
+The more observations you take, the closer your average gets to the true expected value.
+\end{tcolorbox}
 
-\textbf{Formula:}
+Early results can fluctuate heavily, but randomness “averages out” over time.
+
+\subsection{Concrete Examples}
+
+\textbf{Example 1: Coin Toss}
+\begin{itemize}
+\item Let heads = 1, tails = 0
+\item Expected value = 0.5
+\item After 10 tosses → unstable average
+\item After 10,000 tosses → converges to 0.5
+\end{itemize}
+
+\textbf{Example 2: Dice Roll}
+\begin{itemize}
+\item Expected value = 3.5
+\item Small samples fluctuate
+\item Large samples stabilize around 3.5
+\end{itemize}
+
+\subsection{Interpretation}
+
+The LLN does NOT say results become identical — it says the \textbf{average becomes stable}. This is why averages in real datasets are meaningful.
+
+% ---------------- CLT ----------------
+\section{Central Limit Theorem (CLT)}
+
+\subsection{Mathematical Statement}
+
 \[
 \frac{\bar{X} - \mu}{\sigma / \sqrt{n}} \rightarrow \mathcal{N}(0,1)
 \]
 
-\textbf{Explanation:} \\
-The Central Limit Theorem states that the distribution of the sample mean becomes approximately normal as the sample size increases, regardless of the original distribution. This allows us to use normal distribution tools even when the data itself is not normally distributed.
+\subsection{Intuition}
 
-\section{Interpretation Section}
+\begin{tcolorbox}
+No matter the original distribution, the distribution of sample means becomes approximately normal when $n$ is large.
+\end{tcolorbox}
 
-\subsection{Why variance decreases in CLT}
+This is one of the most powerful results in statistics.
 
-The variance of the sample mean is:
+\subsection{Concrete Examples}
+
+\textbf{Example 1: Exponential Data}
+\begin{itemize}
+\item Original data is highly skewed
+\item Sample means become symmetric as $n$ increases
+\end{itemize}
+
+\textbf{Example 2: Uniform Distribution}
+\begin{itemize}
+\item Flat distribution initially
+\item Sample means form a bell curve
+\end{itemize}
+
+\textbf{Example 3: Bernoulli Trials}
+\begin{itemize}
+\item Individual outcomes are binary
+\item Means converge to a normal shape
+\end{itemize}
+
+\subsection{Why variance decreases}
+
 \[
 \text{Var}(\bar{X}) = \frac{\sigma^2}{n}
 \]
 
-As $n$ increases, the variance decreases. This makes the distribution more concentrated around the true mean $\mu$, leading to more precise and stable estimates.
+As $n$ increases:
+\begin{itemize}
+\item spread decreases
+\item estimates become more precise
+\item curve becomes sharper around $\mu$
+\end{itemize}
 
-\subsection{Q-Q Plot Interpretation}
+% ---------------- INTERPRETATION ----------------
+\section{Interpretation and Key Insights}
 
-A Q-Q plot compares the quantiles of the sample data to a normal distribution. If the points lie on a straight line, the data is approximately normal.
+\begin{tcolorbox}
+\textbf{LLN = stability of the mean} \\
+\textbf{CLT = shape of the distribution of the mean}
+\end{tcolorbox}
 
-In our case, the alignment of the points confirms that the distribution of sample means follows a normal distribution, validating the Central Limit Theorem.
+\begin{itemize}
+\item LLN explains \textbf{why averages are reliable}
+\item CLT explains \textbf{why normal distribution appears everywhere}
+\item Together they justify almost all statistical inference
+\end{itemize}
 
+A key idea: randomness does not disappear — it reorganizes into predictable structure.
+
+% ---------------- FIGURES ----------------
 \section{Figures}
 
 \subsection{Central Limit Theorem}
@@ -59,7 +135,7 @@ In our case, the alignment of the points confirms that the distribution of sampl
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{../plots/clt_comparison.png}
-\caption{Illustration of the Central Limit Theorem for different distributions (Exponential, Uniform, Bernoulli) and sample sizes. As $n$ increases, the distributions of sample means become approximately normal.}
+\caption{CLT: Distribution of sample means becomes normal as sample size increases.}
 \end{figure}
 
 \subsection{Q-Q Plot}
@@ -67,7 +143,7 @@ In our case, the alignment of the points confirms that the distribution of sampl
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.6\textwidth]{../plots/clt_exp_qq.png}
-\caption{Q-Q plot of sample means compared to a normal distribution. The alignment along the diagonal indicates approximate normality.}
+\caption{Q-Q plot showing approximate normality of sample means.}
 \end{figure}
 
 \subsection{Law of Large Numbers}
@@ -75,11 +151,14 @@ In our case, the alignment of the points confirms that the distribution of sampl
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.6\textwidth]{../plots/lln_uniform.png}
-\caption{Convergence of the sample mean toward the expected value as the number of observations increases, illustrating the Law of Large Numbers.}
+\caption{LLN: convergence of sample mean toward expected value.}
 \end{figure}
 
+% ---------------- CONCLUSION ----------------
 \section{Conclusion}
 
-The Law of Large Numbers shows that the sample mean converges to the true expected value as the number of observations increases, ensuring reliability of estimates. The Central Limit Theorem demonstrates that the distribution of sample means becomes approximately normal for large samples, regardless of the original distribution. Together, these results form the foundation of statistical inference and are essential in data analysis and real-world applications.
+The Law of Large Numbers ensures that averages become stable with large samples, while the Central Limit Theorem explains why these averages follow a normal distribution.
+
+Together, they form the foundation of statistical reasoning, enabling prediction, estimation, and hypothesis testing across data science and real-world applications.
 
 \end{document}
