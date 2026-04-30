@@ -1,1 +1,85 @@
+\documentclass[a4paper,12pt]{article}
 
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{caption}
+
+\title{Law of Large Numbers and Central Limit Theorem}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Theory Section}
+
+\subsection{Law of Large Numbers (LLN)}
+
+\textbf{Formula:}
+\[
+\bar{X}_n \rightarrow \mathbb{E}[X] \quad \text{as } n \to \infty
+\]
+
+\textbf{Explanation:} \\
+The Law of Large Numbers states that when an experiment is repeated many times, the average of the observed values converges to the expected value. At the beginning, results fluctuate due to randomness, but as the number of observations increases, the average stabilizes and becomes a reliable estimate of the true mean.
+
+\subsection{Central Limit Theorem (CLT)}
+
+\textbf{Formula:}
+\[
+\frac{\bar{X} - \mu}{\sigma / \sqrt{n}} \rightarrow \mathcal{N}(0,1)
+\]
+
+\textbf{Explanation:} \\
+The Central Limit Theorem states that the distribution of the sample mean becomes approximately normal as the sample size increases, regardless of the original distribution. This allows us to use normal distribution tools even when the data itself is not normally distributed.
+
+\section{Interpretation Section}
+
+\subsection{Why variance decreases in CLT}
+
+The variance of the sample mean is:
+\[
+\text{Var}(\bar{X}) = \frac{\sigma^2}{n}
+\]
+
+As $n$ increases, the variance decreases. This makes the distribution more concentrated around the true mean $\mu$, leading to more precise and stable estimates.
+
+\subsection{Q-Q Plot Interpretation}
+
+A Q-Q plot compares the quantiles of the sample data to a normal distribution. If the points lie on a straight line, the data is approximately normal.
+
+In our case, the alignment of the points confirms that the distribution of sample means follows a normal distribution, validating the Central Limit Theorem.
+
+\section{Figures}
+
+\subsection{Central Limit Theorem}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{plots/clt_comparison.png}
+\caption{Illustration of the Central Limit Theorem for different distributions (Exponential, Uniform, Bernoulli) and sample sizes. As $n$ increases, the distributions of sample means become approximately normal.}
+\end{figure}
+
+\subsection{Q-Q Plot}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.6\textwidth]{plots/clt_exp_qq.png}
+\caption{Q-Q plot of sample means compared to a normal distribution. The alignment along the diagonal indicates approximate normality.}
+\end{figure}
+
+\subsection{Law of Large Numbers}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.6\textwidth]{plots/lln_uniform.png}
+\caption{Convergence of the sample mean toward the expected value as the number of observations increases, illustrating the Law of Large Numbers.}
+\end{figure}
+
+\section{Conclusion}
+
+The Law of Large Numbers shows that the sample mean converges to the true expected value as the number of observations increases, ensuring reliability of estimates. The Central Limit Theorem demonstrates that the distribution of sample means becomes approximately normal for large samples, regardless of the original distribution. Together, these results form the foundation of statistical inference and are essential in data analysis and real-world applications.
+
+\end{document}
