@@ -119,13 +119,34 @@ As $n$ increases:
 \textbf{CLT = shape of the distribution of the mean}
 \end{tcolorbox}
 
+\subsection{Interpretation of the Law of Large Numbers}
+
+The LLN figure illustrates the evolution of the cumulative mean as the number of observations increases. At small sample sizes, the mean fluctuates significantly due to randomness. However, as the number of observations grows, these fluctuations decrease and the mean stabilizes around the theoretical expected value.
+
+This convergence is not smooth but oscillatory, meaning the sample mean continues to vary but within a progressively smaller range. This demonstrates that large samples provide more reliable and stable estimates.
+
+\subsection{Interpretation of the Central Limit Theorem}
+
+The histograms show the distribution of sample means for different underlying distributions (uniform, exponential, and Bernoulli). For small sample sizes, the shape of the distribution reflects the original data. As the sample size increases, the distributions become more symmetric and gradually resemble a bell-shaped curve.
+
+This confirms that regardless of the initial distribution, the distribution of sample means converges toward a normal distribution, which is the essence of the Central Limit Theorem.
+
+\subsection{Q-Q Plot Analysis}
+
+The Q-Q plot compares the quantiles of the sample means to those of a theoretical normal distribution. While the central points are approximately aligned along the diagonal, noticeable deviations appear in the tails.
+
+This indicates that the distribution of sample means is approaching normality but has not fully converged. Such deviations are expected when the sample size is not sufficiently large or when the original distribution is strongly skewed (as in the exponential case).
+
+\subsection{Global Insight}
+
+Together, the results highlight two complementary phenomena:
 \begin{itemize}
-\item LLN explains \textbf{why averages are reliable}
-\item CLT explains \textbf{why normal distribution appears everywhere}
-\item Together they justify almost all statistical inference
+\item The LLN ensures that estimates become stable and converge toward the true mean.
+\item The CLT explains why the distribution of these estimates tends toward a normal shape.
 \end{itemize}
 
-A key idea: randomness does not disappear — it reorganizes into predictable structure.
+Thus, randomness does not disappear as more data is collected; instead, it becomes structured and predictable. This dual behavior is the foundation of statistical inference and justifies the widespread use of normal-based methods in data analysis.
+
 
 % ---------------- FIGURES ----------------
 \section{Figures}
