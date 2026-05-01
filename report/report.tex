@@ -149,14 +149,12 @@ Thus, randomness does not disappear as more data is collected; instead, it becom
 
 
 % ---------------- FIGURES ----------------
-\section{Figures}
-
 \subsection{Central Limit Theorem}
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{../plots/clt_comparison.png}
-\caption{CLT: Distribution of sample means becomes normal as sample size increases.}
+\caption{Evolution of the distribution of sample means for different underlying distributions (Exponential, Uniform, Bernoulli) and increasing sample sizes. For small samples, the distributions retain the shape of the original data, while for larger samples they become more symmetric and bell-shaped. This illustrates the convergence toward a normal distribution predicted by the Central Limit Theorem.}
 \end{figure}
 
 \subsection{Q-Q Plot}
@@ -164,16 +162,18 @@ Thus, randomness does not disappear as more data is collected; instead, it becom
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.6\textwidth]{../plots/clt_exp_qq.png}
-\caption{Q-Q plot showing approximate normality of sample means.}
+\caption{Q-Q plot comparing the quantiles of the sample means to those of a theoretical normal distribution. The central points align approximately along the diagonal, indicating partial normality, while deviations in the tails reveal that convergence is not yet perfect. This suggests that the sample size, although large, is not sufficient for complete normal approximation.}
 \end{figure}
+
 
 \subsection{Law of Large Numbers}
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.6\textwidth]{../plots/lln_uniform.png}
-\caption{LLN: convergence of sample mean toward expected value.}
+\caption{Convergence of the cumulative sample mean toward the theoretical expected value (approximately 0.5 for a uniform distribution). The fluctuations are large at the beginning due to randomness but decrease as the number of observations increases, illustrating the stabilizing effect described by the Law of Large Numbers.}
 \end{figure}
+
 
 % ---------------- CONCLUSION ----------------
 \section{Conclusion}
