@@ -65,15 +65,29 @@ ui <- fluidPage(
           
           br(),
           
-          h4("Central Limit Theorem — Distribution of Sample Means"),
-          
-          plotOutput("clt_plot", height = "400px"),
+          checkboxInput(
+            inputId = "showQQ",
+            label   = "Show Q-Q Plot",
+            value   = FALSE
+          ),
           
           br(),
           
-          h4("Normal Q-Q Plot"),
+          conditionalPanel(
+            condition = "input.showQQ == false",
+            
+            h4("Central Limit Theorem — Distribution of Sample Means"),
+            
+            plotOutput("clt_plot", height = "400px")
+          ),
           
-          plotOutput("qq_plot", height = "400px"),
+          conditionalPanel(
+            condition = "input.showQQ == true",
+            
+            h4("Normal Q-Q Plot"),
+            
+            plotOutput("qq_plot", height = "400px")
+          ),
           
           br(),
           
@@ -110,7 +124,9 @@ server <- function(input, output, session) {
       
       if (input$dist == "unif") return(runif)
       
-      if (input$dist == "bern") return(function(n) rbinom(n, 1, 0.5))
+      if (input$dist == "bern") {
+        return(function(n) rbinom(n, 1, 0.5))
+      }
     })
   })
   
@@ -239,8 +255,11 @@ server <- function(input, output, session) {
       cat("=== CLT Statistics ===\n")
       cat("Mean of sample means :", round(mean(means), 4), "\n")
       cat("Std dev of sample means:", round(sd(means), 4), "\n")
-      cat("Expected std dev (σ/√n):",
-          round(sd(gen(10000)) / sqrt(input$n), 4), "\n")
+      cat(
+        "Expected std dev (σ/√n):",
+        round(sd(gen(10000)) / sqrt(input$n), 4),
+        "\n"
+      )
     })
   })
   
@@ -262,7 +281,11 @@ server <- function(input, output, session) {
       cat("=== LLN Statistics ===\n")
       cat("Theoretical mean :", theoretical_mean, "\n")
       cat("Sample mean      :", round(sample_mean, 4), "\n")
-      cat("Difference       :", round(abs(sample_mean - theoretical_mean), 4), "\n")
+      cat(
+        "Difference       :",
+        round(abs(sample_mean - theoretical_mean), 4),
+        "\n"
+      )
     })
   })
 }
